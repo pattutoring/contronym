@@ -1,51 +1,128 @@
-import { contronymOfTheDay } from "./data.js";
+body {
+  background-color: #fdfdfd;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
-export default function App() {
-  const { word, left, right, hint } = contronymOfTheDay;
+.game-container {
+  text-align: center;
+  max-width: 600px;
+}
 
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-cream text-gray-900">
-      <h1 className="text-4xl font-bold mb-2">Contronym</h1>
-      <h2 className="italic text-lg mb-8">The Majorana of Meaning</h2>
+.title {
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
+}
 
-      <div className="relative w-96 h-64 flex flex-col items-center justify-end">
-        {/* Axes */}
-        <div className="absolute w-full h-0.5 bg-gray-700 bottom-12" />
-        <div className="absolute h-full w-0.5 bg-gray-700 left-1/2 bottom-0" />
+.subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 2rem;
+}
 
-        {/* Axis Labels */}
-        <span className="absolute bottom-2 left-8 italic text-sm">transverse</span>
-        <span className="absolute bottom-2 right-8 italic text-sm">conjugate</span>
+.graph {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 1.5rem;
+  border: 1px solid transparent;
+}
 
-        {/* Parabola */}
-        <svg className="absolute bottom-12" viewBox="0 0 400 200" width="400" height="200">
-          <path
-            d="M 50 150 Q 200 0 350 150"
-            stroke="#4a8a8a"
-            strokeDasharray="6 6"
-            fill="none"
-          />
-        </svg>
+.axis {
+  position: absolute;
+}
 
-        {/* Endpoint labels */}
-        <span className="absolute left-8 top-12 italic">{left}</span>
-        <span className="absolute right-8 top-12 italic">{right}</span>
+.x-axis {
+  width: 100%;
+  height: 1px;
+  background: black;
+  top: 50%;
+  left: 0;
+}
 
-        {/* Answer boxes */}
-        <div className="absolute bottom-8 flex gap-1">
-          {word.split("").map((letter, i) => (
-            <div
-              key={i}
-              className="w-8 h-8 border border-gray-700 flex items-center justify-center font-mono text-lg bg-white"
-            >
-              {letter}
-            </div>
-          ))}
-        </div>
+.y-axis {
+  height: 100%;
+  width: 1px;
+  background: red;
+  left: 50%;
+  top: 0;
+}
 
-        {/* Hint */}
-        <p className="absolute bottom-0 text-xs italic text-gray-600 mt-2">{hint}</p>
-      </div>
-    </div>
-  );
+.axis-label {
+  position: absolute;
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.x-label {
+  right: 0;
+  top: 55%;
+}
+
+.y-label {
+  top: 0;
+  left: 55%;
+  color: red;
+}
+
+.parabola {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.letter-boxes {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 4px;
+}
+
+.letter-box {
+  width: 25px;
+  height: 30px;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  background: #fafafa;
+}
+
+.input-section {
+  margin-top: 1rem;
+}
+
+input {
+  padding: 6px 10px;
+  font-size: 1rem;
+  border: 1px solid #999;
+  border-radius: 6px;
+  width: 200px;
+}
+
+button {
+  padding: 6px 12px;
+  margin-left: 8px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+.message {
+  margin-top: 0.8rem;
+  font-weight: 500;
 }
