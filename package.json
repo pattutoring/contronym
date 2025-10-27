@@ -9,7 +9,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://<pattutoring>.github.io/contronym",
+"homepage": "https://pattutoring.github.io/"
+
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
