@@ -1,7 +1,19 @@
+import { useState } from "react";
 import { contronymOfTheDay } from "./data.js";
 
 export default function App() {
   const { word, left, right, hint } = contronymOfTheDay;
+
+  const [attempted, setAttempted] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+
+  const handleAttempt = () => {
+    setAttempted(true);
+  };
+
+  const handleShowHint = () => {
+    setShowHint(true);
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-cream text-gray-900">
@@ -10,8 +22,8 @@ export default function App() {
 
       <div className="relative w-96 h-64 flex flex-col items-center justify-end">
         {/* Axes */}
-        <div className="absolute w-full h-0.5 bg-gray-700 bottom-12" />
-        <div className="absolute h-full w-0.5 bg-gray-700 left-1/2 bottom-0" />
+        <div className="absolute w-full h-0.5 bg-red-500 bottom-12" /> {/* X-axis in red */}
+        <div className="absolute h-full w-0.5 bg-gray-700 left-1/2 bottom-0" /> {/* Y-axis */}
 
         {/* Axis Labels */}
         <span className="absolute bottom-2 left-8 italic text-sm">transverse</span>
@@ -29,16 +41,38 @@ export default function App() {
         {/* Answer boxes */}
         <div className="absolute bottom-8 flex gap-1">
           {word.split("").map((letter, i) => (
-            <div key={i} className="w-8 h-8 border border-gray-700 flex items-center justify-center font-mono text-lg bg-white">
-              {letter}
+            <div
+              key={i}
+              className="w-8 h-8 border border-gray-700 flex items-center justify-center font-mono text-lg bg-white"
+            >
+              {attempted ? letter : ""} {/* Show letter only after attempt */}
             </div>
           ))}
         </div>
 
+        {/* Buttons */}
+        <div className="absolute bottom-0 mt-2 flex gap-2">
+          {!attempted && (
+            <button
+              className="px-2 py-1 border rounded bg-gray-200 hover:bg-gray-300 text-sm"
+              onClick={handleAttempt}
+            >
+              Attempt Answer
+            </button>
+          )}
+          {!showHint && (
+            <button
+              className="px-2 py-1 border rounded bg-gray-200 hover:bg-gray-300 text-sm"
+              onClick={handleShowHint}
+            >
+              Show Hint
+            </button>
+          )}
+        </div>
+
         {/* Hint */}
-        <p className="absolute bottom-0 text-xs italic text-gray-600 mt-2">{hint}</p>
+        {showHint && <p className="absolute bottom-0 text-xs italic text-gray-600 mt-2">{hint}</p>}
       </div>
     </div>
   );
 }
-
