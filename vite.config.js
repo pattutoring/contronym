@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/pattutoring.github.io/', // <-- your repo name
-});
+  base: '/contronym/',  // 👈 must match the repo name exactly
+})
 
 
 
