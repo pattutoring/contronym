@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // relative base fixes blank page
+  base: './', // relative paths for GitHub Pages
 })
+
 
 
 
