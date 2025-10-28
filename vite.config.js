@@ -3,9 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/pattutoring.github.io/'  // <-- Replace with your repo name
+  base: '/pattutoring.github.io/' // <-- your repo name, must match GitHub Pages URL
 })
-
 
 
 
