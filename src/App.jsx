@@ -7,13 +7,8 @@ export default function App() {
   const [attempted, setAttempted] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
-  const handleAttempt = () => {
-    setAttempted(true);
-  };
-
-  const handleShowHint = () => {
-    setShowHint(true);
-  };
+  const handleAttempt = () => setAttempted(true);
+  const handleShowHint = () => setShowHint(true);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-cream text-gray-900">
@@ -22,7 +17,7 @@ export default function App() {
 
       <div className="relative w-96 h-64 flex flex-col items-center justify-end">
         {/* Axes */}
-        <div className="absolute w-full h-0.5 bg-red-500 bottom-12" /> {/* X-axis in red */}
+        <div className="absolute w-full h-0.5 bg-red-500 bottom-12" /> {/* X-axis red */}
         <div className="absolute h-full w-0.5 bg-gray-700 left-1/2 bottom-0" /> {/* Y-axis */}
 
         {/* Axis Labels */}
@@ -45,7 +40,7 @@ export default function App() {
               key={i}
               className="w-8 h-8 border border-gray-700 flex items-center justify-center font-mono text-lg bg-white"
             >
-              {attempted ? letter : ""} {/* Show letter only after attempt */}
+              {attempted ? letter : ""} {/* hidden until attempt */}
             </div>
           ))}
         </div>
