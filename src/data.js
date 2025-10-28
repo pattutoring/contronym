@@ -5,3 +5,4 @@ export const contronymOfTheDay = {
   hint: "A word that both authorizes and penalizes an action.",
 };
 
+
