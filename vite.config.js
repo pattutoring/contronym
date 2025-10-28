@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/contronym/'  // MUST match your repo name exactly
+  base: '/contronym/',  // MUST match your GitHub repo name exactly
 })
 
 
