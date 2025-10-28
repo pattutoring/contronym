@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/contronym/', // MUST match repo name exactly
+  base: './', // relative base fixes blank page
 })
 
 
