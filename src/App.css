@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  color: #222;
+}
+
+.y-axis {
+  border-left: 4px solid red;
+  height: 300px;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: -30px;
+  left: -15px;
+  color: red;
+  font-weight: bold;
+}
