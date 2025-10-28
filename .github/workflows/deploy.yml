@@ -30,9 +30,9 @@ jobs:
         run: npm run build
 
       - name: Upload production-ready files
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4  # ✅ use v4
         with:
-          path: dist  # ✅ Make sure this matches your Vite output folder
+          path: dist  # Make sure this matches your Vite output folder
 
   deploy:
     needs: build
@@ -44,4 +44,4 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: dist  # ✅ Must match uploaded artifact
+          artifact_name: dist  # Must match the uploaded artifact
