@@ -3,7 +3,6 @@ import { contronymOfTheDay } from "./data.js";
 
 export default function App() {
   const { word, left, right, hint } = contronymOfTheDay;
-
   const [attempted, setAttempted] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
