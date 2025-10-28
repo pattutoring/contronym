@@ -7,9 +7,6 @@ export default function App() {
   const [attempted, setAttempted] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
-  const handleAttempt = () => setAttempted(true);
-  const handleShowHint = () => setShowHint(true);
-
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-cream text-gray-900">
       <h1 className="text-4xl font-bold mb-2">Contronym</h1>
@@ -17,8 +14,8 @@ export default function App() {
 
       <div className="relative w-96 h-64 flex flex-col items-center justify-end">
         {/* Axes */}
-        <div className="absolute w-full h-0.5 bg-red-500 bottom-12" /> {/* X-axis red */}
-        <div className="absolute h-full w-0.5 bg-gray-700 left-1/2 bottom-0" /> {/* Y-axis */}
+        <div className="absolute w-full h-0.5 bg-red-500 bottom-12" /> {/* x-axis red */}
+        <div className="absolute h-full w-0.5 bg-gray-700 left-1/2 bottom-0" />
 
         {/* Axis Labels */}
         <span className="absolute bottom-2 left-8 italic text-sm">transverse</span>
@@ -40,7 +37,7 @@ export default function App() {
               key={i}
               className="w-8 h-8 border border-gray-700 flex items-center justify-center font-mono text-lg bg-white"
             >
-              {attempted ? letter : ""} {/* hidden until attempt */}
+              {attempted ? letter : ""}
             </div>
           ))}
         </div>
@@ -50,7 +47,7 @@ export default function App() {
           {!attempted && (
             <button
               className="px-2 py-1 border rounded bg-gray-200 hover:bg-gray-300 text-sm"
-              onClick={handleAttempt}
+              onClick={() => setAttempted(true)}
             >
               Attempt Answer
             </button>
@@ -58,7 +55,7 @@ export default function App() {
           {!showHint && (
             <button
               className="px-2 py-1 border rounded bg-gray-200 hover:bg-gray-300 text-sm"
-              onClick={handleShowHint}
+              onClick={() => setShowHint(true)}
             >
               Show Hint
             </button>
